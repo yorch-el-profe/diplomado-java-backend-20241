@@ -9,7 +9,10 @@
     <div class="p-5">
       <h1>Editar un producto</h1>
 
-      <form class="row g-3" th:object="${product}" method="post" th:action="@{/guardar}">
+      <form class="row g-3" th:object="${product}" method="post" th:action="@{/actualizar}">
+
+        <input type="hidden" class="form-control" id="inputName" th:field="*{id}">
+
         <div class="col-12">
           <label for="inputName" class="form-label">Nombre del producto</label>
           <input type="text" class="form-control" id="inputName" th:field="*{name}">

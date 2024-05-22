@@ -61,4 +61,19 @@ public class StoreController {
 
     return "redirect:/";
   }
+
+  @PostMapping("actualizar")
+  public String put(@ModelAttribute("product") Product data) {
+    for (Product product : products) {
+      if (product.getId() == data.getId()) {
+       
+        // Actualizando el producto con los nuevos valores
+        product.setName(data.getName());
+        product.setPrice(data.getPrice());
+        product.setStock(data.getStock());
+      }
+    }
+
+    return "redirect:/";
+  } 
 }
