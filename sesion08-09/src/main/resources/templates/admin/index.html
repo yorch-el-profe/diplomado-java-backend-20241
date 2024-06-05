@@ -16,7 +16,7 @@
     >
       <div class="d-flex col-8 justify-content-between align-items-center">
         <h1>Lista de Productos</h1>
-        <a href="/admin/crear" class="btn btn-link">Crear nuevo</a>
+        <a th:href="@{/admin/crear}" class="btn btn-link">Crear nuevo</a>
       </div>
 
       <div class="mt-5 col-8">
@@ -26,6 +26,7 @@
               <th scope="col">ID</th>
               <th scope="col">Nombre</th>
               <th scope="col">Precio</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +34,14 @@
               <th scope="row" th:text="${p.id}"></th>
               <td th:text="${p.name}"></td>
               <td th:text="${p.price}"></td>
+              <td>
+                <form th:action="@{/admin/eliminar/{id}(id = ${p.id})}" method="post">
+                  <a th:href="@{/admin/editar/{id}(id = ${p.id})}" class="btn btn-sm btn-primary">Editar</a>
+                  <button class="btn btn-sm btn-danger" type="submit">
+                    Eliminar
+                  </button>
+                </form>
+              </td>
             </tr>
           </tbody>
         </table>
