@@ -10,12 +10,12 @@ public class AdminController {
   
   @GetMapping
   public String index() {
-    return "index.html";
+    return "admin/index.html";
   }
 
 
   @GetMapping("crear")
   public String add() {
-    return "create.html";
+    return "admin/create.html";
   }
 }
