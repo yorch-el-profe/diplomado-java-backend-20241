@@ -16,6 +16,9 @@ public class Product {
   @Column(nullable = false)
   private String name;
 
+  @Column(nullable = false)
+  private String picture;
+
   @Column
   private double price;
   
@@ -36,5 +39,11 @@ public class Product {
   }
   public void setPrice(double price) {
     this.price = price;
+  }
+  public String getPicture() {
+    return picture;
+  }
+  public void setPicture(String picture) {
+    this.picture = picture;
   }
 }
