@@ -18,10 +18,12 @@ public class AdminController {
   private ProductRepository repository;
   
   @GetMapping
-  public String index() {
+  public String index(Model model) {
+
+    model.addAttribute("products", repository.findAll());
+
     return "admin/index.html";
   }
-
 
   @GetMapping("crear")
   public String create(Model model) {
