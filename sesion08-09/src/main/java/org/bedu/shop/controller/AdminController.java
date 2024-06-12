@@ -38,12 +38,13 @@ public class AdminController {
   @GetMapping("editar/{id}")
   public String edit(@PathVariable("id") int id, Model model) {
 
-    Optional<Product> product = repository.findById(id);
+    Optional<Product> box = repository.findById(id);
 
-    if (product.isPresent()) {
-      model.addAttribute("product", product.get());
+    if (box.isPresent()) {
+      Product p = box.get(); // Sacando el producto (no nulo o existente) de la cajita
+      model.addAttribute("product", p);
 
-      return "...";
+      return "admin/edit.html";
     }
 
     return "redirect:/admin";
